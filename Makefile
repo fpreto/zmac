@@ -2,7 +2,8 @@
 # C delarations used.
 
 CFLAGS=-O2
-
+# The following flag is required to compile in Fedora (and probably other RHELish flavours).
+YACC=bison -y
 DEP=zmac.o mio.o doc.o zi80dis.o
 
 zmac: doc.inl $(DEP)
@@ -13,4 +14,4 @@ doc.inl: doc.c doc.txt
 	./doc >/dev/null
 
 clean:
-	rm -f zmac.c doc.inl $(DEP)
+	rm -f zmac zmac.c doc.inl $(DEP)
